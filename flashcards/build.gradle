@@ -15,10 +15,14 @@ plugins {
 
     id 'checkstyle'
 
-   // id "com.github.spotbugs" version "1.6.9"
+    //id "com.github.spotbugs" version "3.1.9"
 }
 
 repositories {
+
+  //  maven {
+    //    url "https://plugins.gradle.org/m2/"
+    //}
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
@@ -30,6 +34,8 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+
+    //spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:3.1.9'
 }
 
 // Define the main class for the application
@@ -41,4 +47,18 @@ apply plugin: 'checkstyle'
 checkstyle {
     // default path is config/checkstyle/checkstyle.xml
     configFile rootProject.file("checkstyle.xml")
+}
+
+//spotbugs {
+    //toolVersion = '3.1.9'
+  //  ignoreFailures = false
+//}
+//com.github.spotbugs {
+  //
+//}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'de.tud.cs.se.flashcards.Main'
+    }
 }
